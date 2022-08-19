@@ -14,6 +14,7 @@ namespace EntityFramwork.net5
         public int BranchID { get; set; }
 
         public Branch Branchs { get; set; }
+        //Navigation proprety
         public virtual ICollection<Empolyee> Empolyees { get; set; }
         public virtual ICollection<Project> projects { get; set; }
     }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,12 @@ namespace EntityFramwork.net5
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Data source = SABER ; Initial catalog = frameCore ; integrated security = true ");
-            
+
+            optionsBuilder.LogTo(log => Debug.WriteLine(log));
+
+
+            // lazy loading
+            optionsBuilder.UseLazyLoadingProxies(true);
 
             base.OnConfiguring(optionsBuilder);
         }
