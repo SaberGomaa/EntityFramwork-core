@@ -10,6 +10,11 @@ namespace EntityFramwork.net5
 {
     internal class Context :DbContext
     {
+        public Context()
+        {
+            ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+        }
+
         public DbSet<Empolyee> Empolyee { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Branch> Branchs { get; set; }

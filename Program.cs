@@ -63,10 +63,24 @@ namespace EntityFramwork.net5 // .net5 == .net core
             //     select d).ToList();
 
             #endregion
-        
-            foreach(var item in query)
+
+            #region NO Tracking Data *Read only *
+
+
+            //var query =
+            //    context.Empolyee.AsNoTrackingWithIdentityResolution()
+            //    .Include(e => e.Department);
+
+
+            //var query =
+            //    context.Empolyee.AsNoTracking()
+            //    .Include(e => e.Department);
+
+            #endregion
+
+            foreach (var item in query)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.Department.Name + " " + item.Name);
             }
 
         }
