@@ -78,9 +78,24 @@ namespace EntityFramwork.net5 // .net5 == .net core
 
             #endregion
 
-            foreach (var item in query)
+            //var query =
+            //   (from e in context.Empolyee
+            //        //where !e.Deleted 
+            //    select e).ToList();
+
+            //var dept = context.Departments.First();
+
+            //var x = context.Entry(dept).Property("Deleted").CurrentValue;
+            //context.Entry(dept).Property("Deleted").CurrentValue = true;
+
+            var query =
+                from d in context.Empolyee
+                where EF.Property<bool>(d, "Deleted") == true
+                select d;
+
+            foreach(var item in query)
             {
-                Console.WriteLine(item.Department.Name + " " + item.Name);
+                Console.WriteLine(item.Name);
             }
 
         }

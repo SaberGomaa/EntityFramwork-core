@@ -11,6 +11,6 @@ namespace EntityFramwork.net5
         public int EmployeeID { get; set; }
         public DateTime Date { get; set; }
         
-        public Empolyee Empolyee { get; set; }
+        public virtual Empolyee Empolyee { get; set; }
     }
 }

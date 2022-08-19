@@ -12,6 +12,6 @@ namespace EntityFramwork.net5
         public string Name { get; set; }
 
         public int DepartmentID { get; set; }
-        public Department Department { get; set; }
+        public virtual Department Department { get; set; }
     }
 }

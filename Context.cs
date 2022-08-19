@@ -29,7 +29,7 @@ namespace EntityFramwork.net5
 
 
             // lazy loading
-           // optionsBuilder.UseLazyLoadingProxies(true);
+           //optionsBuilder.UseLazyLoadingProxies(true);
 
             base.OnConfiguring(optionsBuilder);
         }
@@ -44,7 +44,18 @@ namespace EntityFramwork.net5
             modelBuilder.Entity<Department>().Property(d => d.ID).IsRequired(true);
 
             modelBuilder.Entity<Attendance>().HasKey(e => new { e.EmployeeID ,e.Date });//composet key
-            
+
+            //modelBuilder.Entity<Empolyee>().HasQueryFilter(e => !e.Deleted);// to add condition in query to filter data
+
+
+            //modelBuilder.Entity<Department>()
+            //    .Property<bool>("Deleted").IsRequired(true).HasDefaultValue(false);
+            foreach(var item in modelBuilder.Model.GetEntityTypes())
+            {
+                modelBuilder.Entity(item.Name)  
+                    .Property<bool>("Deleted").IsRequired(true).HasDefaultValue(false);
+            }
+
             base.OnModelCreating(modelBuilder);
         }
     }

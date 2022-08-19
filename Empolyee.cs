@@ -18,8 +18,10 @@ namespace EntityFramwork.net5
 
         public double Salary { get; set; }
 
-        public int DepartmentID { get; set; } 
-        public Department Department { get; set; } // Navigation property
+        public int DepartmentID { get; set; }
+
+        public bool Deleted { get; set; }
+        public virtual Department Department { get; set; } // Navigation property
         public virtual ICollection<Attendance> Attendances { get; set; }
 
     }
