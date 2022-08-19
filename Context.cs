@@ -24,7 +24,7 @@ namespace EntityFramwork.net5
 
 
             // lazy loading
-            optionsBuilder.UseLazyLoadingProxies(true);
+           // optionsBuilder.UseLazyLoadingProxies(true);
 
             base.OnConfiguring(optionsBuilder);
         }
@@ -35,9 +35,10 @@ namespace EntityFramwork.net5
             modelBuilder.Entity<Department>().ToTable("Departments"); // fluent API
 
             //modelBuilder.Entity<Attendance>().ToTable("Attendances");
+
             modelBuilder.Entity<Department>().Property(d => d.ID).IsRequired(true);
 
-            //modelBuilder.Entity<Attendance>().HasKey(e => new { e.EmployeeID ,e.Date });//composet key
+            modelBuilder.Entity<Attendance>().HasKey(e => new { e.EmployeeID ,e.Date });//composet key
             
             base.OnModelCreating(modelBuilder);
         }

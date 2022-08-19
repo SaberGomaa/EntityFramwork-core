@@ -52,8 +52,22 @@ namespace EntityFramwork.net5 // .net5 == .net core
 
             //var query =
             //    (from dept in context.Departments
-            //    select string.Join(':', "Dept ", dept.Name)).ToList(); 
+            //     select string.Join(':', "Dept ", dept.Name)).ToList();
             #endregion
+
+            #region EF Functios
+
+            //var query =
+            //    (from d in context.Departments
+            //     where EF.Functions.Like(d.Name , "%T%") //d.Name.Contains("S")
+            //     select d).ToList();
+
+            #endregion
+        
+            foreach(var item in query)
+            {
+                Console.WriteLine(item.Name);
+            }
 
         }
     }
