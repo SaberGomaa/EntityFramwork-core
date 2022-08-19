@@ -48,6 +48,12 @@ namespace EntityFramwork.net5 // .net5 == .net core
             //} 
             #endregion
 
+            #region Client VS  Server Evaluation
+
+            //var query =
+            //    (from dept in context.Departments
+            //    select string.Join(':', "Dept ", dept.Name)).ToList(); 
+            #endregion
 
         }
     }
